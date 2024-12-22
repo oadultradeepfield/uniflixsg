@@ -19,24 +19,35 @@ def calculate_similarity(query):
 
     with engine.connect() as connection:
         embeddings_university = np.array(
-            connection.execute(
-                text("SELECT embedding FROM embeddings_university")
-            ).fetchall()
-        ).reshape(-1, embedded_query.shape[1])
+            [
+                np.array(embedding[0][1:-1].split(","), dtype=float)
+                for embedding in connection.execute(
+                    text("SELECT embeddings_university FROM embeddings")
+                ).fetchall()
+            ]
+        )
 
         embeddings_program = np.array(
-            connection.execute(
-                text("SELECT embedding FROM embeddings_program")
-            ).fetchall()
-        ).reshape(-1, embedded_query.shape[1])
+            [
+                np.array(embedding[0][1:-1].split(","), dtype=float)
+                for embedding in connection.execute(
+                    text("SELECT embeddings_program FROM embeddings")
+                ).fetchall()
+            ]
+        )
 
         embeddings_career = np.array(
-            connection.execute(
-                text("SELECT embedding FROM embeddings_career")
-            ).fetchall()
-        ).reshape(-1, embedded_query.shape[1])
+            [
+                np.array(embedding[0][1:-1].split(","), dtype=float)
+                for embedding in connection.execute(
+                    text("SELECT embeddings_career FROM embeddings")
+                ).fetchall()
+            ]
+        )
 
-        programs = connection.execute(text("SELECT id, name FROM programs")).fetchall()
+        programs = connection.execute(
+            text("SELECT program_id, program FROM embeddings")
+        ).fetchall()
 
     similarity_university = cosine_similarity(embeddings_university, embedded_query)
     similarity_program = cosine_similarity(embeddings_program, embedded_query)
@@ -51,4 +62,10 @@ def calculate_similarity(query):
 
     program_names = [programs[i][1] for i in top_indices]
 
-    return [(name, name.split()[-1]) for name in program_names]
+    return [
+        (
+            name.rsplit(" at ", 1)[0],
+            f"{name.rsplit(' at ', 1)[-1].split(' (')[0]} ({name.rsplit(' (', 1)[-1][:-1]}",
+        )
+        for name in program_names
+    ]

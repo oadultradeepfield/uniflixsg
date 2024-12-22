@@ -19,6 +19,9 @@ RUN apt-get update && \
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Install psycopg2 explicitly (if not in requirements.txt)
+RUN pip install --no-cache-dir psycopg2-binary
+
 # Copy the application files
 COPY . .
 

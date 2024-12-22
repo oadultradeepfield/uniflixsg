@@ -1,5 +1,6 @@
-from database.migrate import migrate_data_to_db
 from flask import Flask, jsonify, request
+
+from database.migrate import migrate_data_to_db
 from routes.program import get_program_recommendations
 
 app = Flask(__name__)

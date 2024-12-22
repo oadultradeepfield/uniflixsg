@@ -1,0 +1,56 @@
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore environment files
+.env
+*.env
+
+# Ignore virtual environment
+venv/
+.env/
+.python-version
+
+# Ignore development tools and configuration files
+.idea/
+.vscode/
+*.iml
+
+# Ignore Git files
+.git/
+.gitignore
+
+# Ignore Docker files
+docker-compose.override.yml
+Dockerfile*
+
+# Ignore log files
+*.log
+
+# Ignore data files
+data/
+
+# Ignore compiled or binary files
+*.so
+*.dll
+*.dylib
+*.o
+*.out
+
+# Ignore package management files
+*.egg-info/
+*.egg
+Pipfile.lock
+poetry.lock
+node_modules/
+dist/
+build/
+
+# Ignore OS and editor temporary files
+*.swp
+*.swo
+*.tmp
+.DS_Store
+Thumbs.db
+desktop.ini

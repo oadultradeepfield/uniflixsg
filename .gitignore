@@ -1,42 +1,42 @@
 # Python cache and compiled files
-backend/__pycache__/
-backend/*.py[cod]
-backend/*$py.class
+/backend/__pycache__/
+/backend/*.py[cod]
+/backend/*$py.class
 
 # Environment variables
-backend/.env
-backend/*.env
+.env
+*.env
+/backend/.env
+/backend/*.env
 
 # Flask instance folder
-backend/instance/
+/backend/instance/
 
 # Development logs
-backend/*.log
+/backend/*.log
 
 # Local data files
-backend/*.sqlite3
-backend/*.db
+/backend/*.sqlite3
+/backend/*.db
 
 # Virtual environment
-venv/
-.env/
-*.python-version
+/venv/
+/*.python-version
 
 # Python egg files
 *.egg
 *.egg-info/
-dist/
-build/
-*.egg-info
+/dist/
+/build/
 
 # Cache files and directories
-backend/*.cache
-backend/.cache/
-pip-wheel-metadata/
+/backend/*.cache
+/backend/.cache/
+/pip-wheel-metadata/
 
 # IDE-specific files
 .idea/
-.vscode/
+/.vscode/
 *.iml
 
 # OS-generated files
@@ -48,13 +48,42 @@ desktop.ini
 docker-compose.override.yml
 *.pid
 
-# Node.js dependencies (if applicable)
-node_modules/
+# Sensitive files
+/backend/*.crt
+/backend/*.pem
+/backend/*.key
+
+# Node.js dependencies
+/frontend/node_modules/
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Testing and coverage
+/coverage
+
+# Next.js build artifacts
+/frontend/.next/
+/out/
+/build
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Debug logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.pnpm-debug.log*
 
-# Exclude sensitive files
-backend/*.crt
-backend/*.pem
-backend/*.key
+# Vercel deployment
+.vercel
+
+# Miscellaneous
+*.pem
+.DS_Store

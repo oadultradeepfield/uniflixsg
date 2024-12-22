@@ -22,14 +22,10 @@ venv/
 .gitignore
 
 # Ignore Docker files
-docker-compose.override.yml
 Dockerfile*
 
 # Ignore log files
 *.log
-
-# Ignore data files
-data/
 
 # Ignore compiled or binary files
 *.so

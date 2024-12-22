@@ -80,3 +80,6 @@ def migrate_data_to_db():
             )
     else:
         print("Table 'embeddings_career' already exists. Skipping migration.")
+
+
+migrate_data_to_db()

@@ -1,8 +1,7 @@
 from utils.embeddings import calculate_similarity
 
 
-def get_program_recommendations(personal_interest, career_prospect):
-    query = f"I am interested in {personal_interest}. Upon graduation, I want to work as {career_prospect}."
+def get_program_recommendations(query):
     recommendations = calculate_similarity(query)
     result = []
 

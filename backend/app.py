@@ -10,13 +10,12 @@ migrate_data_to_db()
 @app.route("/api/recommend", methods=["POST"])
 def recommend_program():
     data = request.get_json()
-    personal_interest = data.get("personal_interest", "")
-    career_prospect = data.get("career_prospect", "")
+    query = data.get("query", "")
 
-    if not personal_interest or not career_prospect:
-        return jsonify({"error": "Both fields are required"}), 400
+    if not query:
+        return jsonify({"error": "Query is required"}), 400
 
-    recommendations = get_program_recommendations(personal_interest, career_prospect)
+    recommendations = get_program_recommendations(query)
     return jsonify(recommendations)
 
 

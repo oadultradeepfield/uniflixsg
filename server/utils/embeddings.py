@@ -1,9 +1,9 @@
 import os
 
 import numpy as np
+from cosine_similarity import cosine_similarity
 from dotenv import load_dotenv
 from sentence_transformers import SentenceTransformer
-from sklearn.metrics.pairwise import cosine_similarity
 from sqlalchemy import create_engine, text
 
 load_dotenv()

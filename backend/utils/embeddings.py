@@ -1,10 +1,10 @@
 import os
 
 import numpy as np
-from cosine_similarity import cosine_similarity
 from dotenv import load_dotenv
 from sentence_transformers import SentenceTransformer
 from sqlalchemy import create_engine, text
+from utils.cosine_similarity import cosine_similarity
 
 load_dotenv()
 DSN = os.getenv("DSN")

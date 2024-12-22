@@ -1,21 +1,21 @@
 # Python cache and compiled files
-server/__pycache__/
-server/*.py[cod]
-server/*$py.class
+backend/__pycache__/
+backend/*.py[cod]
+backend/*$py.class
 
 # Environment variables
-server/.env
-server/*.env
+backend/.env
+backend/*.env
 
 # Flask instance folder
-server/instance/
+backend/instance/
 
 # Development logs
-server/*.log
+backend/*.log
 
 # Local data files
-server/*.sqlite3
-server/*.db
+backend/*.sqlite3
+backend/*.db
 
 # Virtual environment
 venv/
@@ -30,8 +30,8 @@ build/
 *.egg-info
 
 # Cache files and directories
-server/*.cache
-server/.cache/
+backend/*.cache
+backend/.cache/
 pip-wheel-metadata/
 
 # IDE-specific files
@@ -55,6 +55,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # Exclude sensitive files
-server/*.crt
-server/*.pem
-server/*.key
+backend/*.crt
+backend/*.pem
+backend/*.key

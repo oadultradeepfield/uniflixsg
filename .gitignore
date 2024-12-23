@@ -84,6 +84,11 @@ yarn-error.log*
 # Vercel deployment
 .vercel
 
+# Svelte build artifacts
+/frontend/build/
+/frontend/.svelte-kit/
+/frontend/node_modules/
+
 # Miscellaneous
 *.pem
 .DS_Store

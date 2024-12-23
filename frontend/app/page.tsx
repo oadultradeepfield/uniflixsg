@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <div className="flex min-h-screen flex-col bg-base-100">
-        <div className="border-b-2 border-base-200 px-2 py-1">
+        <div className="border-b border-base-200 px-2 py-1 shadow">
           <Header />
         </div>
         <main className="flex flex-grow flex-col items-center justify-center px-2 py-4">

@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 export interface Recommendation {
-  program: string;
+  program_title: string;
   university: string;
 }
 

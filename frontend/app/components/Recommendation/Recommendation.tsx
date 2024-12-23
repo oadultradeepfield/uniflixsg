@@ -2,12 +2,13 @@ import { useEffect } from "react";
 import useRecommendation from "@/app/api/useRecommend";
 import Skeleton from "../Common/Skeleton";
 import RecommendationCard from "./RecommendationCard";
+import RecommendationHeader from "./RecommendationHeader";
 
 interface RecommendationProps {
   query: string;
 }
 
-const Recommendation = ({ query }: RecommendationProps) => {
+export default function Recommendation({ query }: RecommendationProps) {
   const { recommendations, loading, fetchRecommendations } =
     useRecommendation();
 
@@ -24,22 +25,23 @@ const Recommendation = ({ query }: RecommendationProps) => {
   }
 
   return (
-    <div className="mx-auto max-w-3xl space-y-4 px-4">
-      {recommendations?.length === 0 ? (
-        <div className="text-center text-base-content/70">
-          No recommendations found
-        </div>
-      ) : (
-        recommendations?.map((recommendation) => (
-          <RecommendationCard
-            key={`${recommendation.program}-${recommendation.university}`}
-            program={recommendation.program}
-            university={recommendation.university}
-          />
-        ))
-      )}
+    <div>
+      {recommendations?.length > 0 && <RecommendationHeader />}
+      <div className="space-y-4">
+        {recommendations?.length === 0 ? (
+          <div className="text-center text-base-content/70">
+            No recommendations found
+          </div>
+        ) : (
+          recommendations?.map((recommendation) => (
+            <RecommendationCard
+              key={`${recommendation.program_title}-${recommendation.university}`}
+              program_title={recommendation.program_title}
+              university={recommendation.university}
+            />
+          ))
+        )}
+      </div>
     </div>
   );
-};
-
-export default Recommendation;
+}

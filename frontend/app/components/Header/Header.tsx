@@ -5,7 +5,7 @@ import AppLogo from "./AppLogo";
 
 export default function Header() {
   return (
-    <div className="max-w-5xl mx-auto navbar bg-base-100">
+    <div className="navbar mx-auto max-w-5xl bg-base-100">
       <div className="navbar-start">
         <AppLogo />
       </div>

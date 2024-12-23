@@ -15,7 +15,7 @@ export default function CustomUserButton() {
       <UserButton.MenuItems>
         <UserButton.Link
           label="Collection"
-          labelIcon={<BookmarkIcon className="w-4 h-4 stroke-2 text-current" />}
+          labelIcon={<BookmarkIcon className="h-4 w-4 stroke-2 text-current" />}
           href="/collection"
         />
       </UserButton.MenuItems>

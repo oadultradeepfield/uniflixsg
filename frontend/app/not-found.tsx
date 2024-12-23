@@ -6,8 +6,8 @@ import { HomeIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-base-200 flex items-center justify-center p-4">
-      <div className="text-center space-y-6 max-w-lg">
+    <div className="flex min-h-screen items-center justify-center bg-base-200 p-4">
+      <div className="max-w-lg space-y-6 text-center">
         <div className="text-6xl font-bold text-base-content/90">404</div>
         <div className="space-y-3">
           <div className="text-2xl font-semibold text-base-content/80">
@@ -19,15 +19,15 @@ export default function NotFound() {
         </div>
         <div className="space-y-4">
           <Link href="/" className="btn btn-primary">
-            <HomeIcon className="w-4 h-4" />
+            <HomeIcon className="h-4 w-4" />
             Return Home
           </Link>
-          <div className="flex gap-4 justify-center">
+          <div className="flex justify-center gap-4">
             <button
               onClick={() => window.history.back()}
-              className="inline-flex items-center gap-2 px-4 py-2 text-sm text-base-content/75 hover:text-base-content/50 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 text-sm text-base-content/75 transition-colors hover:text-base-content/50"
             >
-              <ArrowLeftIcon className="w-4 h-4" />
+              <ArrowLeftIcon className="h-4 w-4" />
               Go Back
             </button>
           </div>

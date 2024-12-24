@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { query_result, loading, search_query } from '$lib/shared.svelte';
 	import { onMount } from 'svelte';
+	import { prisma } from '../../prisma';
+	import { page } from '$app/state';
+
 	let apiUrl = '';
 
 	onMount(() => {
@@ -9,6 +12,7 @@
 
 	async function submitQuery() {
 		loading.is_loading = true;
+
 		if (!search_query.query.trim()) {
 			loading.is_loading = false;
 			return;
@@ -21,9 +25,19 @@
 				body: JSON.stringify({ query: search_query.query })
 			});
 			const result = await response.json();
+
+			if (page?.data?.session?.user) {
+				const userEmail = page.data.session.user.email!;
+				console.log(page.data);
+				await fetch(`/api/history/`, {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ query: search_query.query, result, userEmail })
+				});
+			}
+
 			query_result.result = result;
 			loading.is_loading = false;
-			console.log('Response:', $state.snapshot(query_result.result));
 		} catch (error) {
 			loading.is_loading = false;
 			console.error('Error submitting query:', error);

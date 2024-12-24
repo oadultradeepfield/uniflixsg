@@ -1,11 +1,16 @@
 import type { Config } from 'tailwindcss';
 
 export default {
-	content: ['./src/**/*.{html,js,svelte,ts}'],
-
+	content: ['./src/**/*.{html,svelte,js,ts}'],
 	theme: {
-		extend: {}
+		extend: {
+			fontFamily: {
+				sans: ['Inter', 'ui-sans-serif', 'system-ui']
+			}
+		}
 	},
-
-	plugins: []
+	plugins: [require('daisyui')],
+	daisyui: {
+		themes: ['business']
+	}
 } satisfies Config;

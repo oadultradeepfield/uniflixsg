@@ -42,7 +42,7 @@ I built this project specifically to learn Svelte and SvelteKit, which turned ou
 
    The server will run on port 8080.
 
-3. To run the frontend, install the required Node packages and build the app. Note that this project is built with Node version 22.12.0, where Prisma is fully supported. Odd-numbered versions like 23.x may not be stable as of the time this README was written. Also, refer to [`.env.example`](/frontend/.env.example) to ensure all environment variables are correctly configured.
+3. To run the frontend, install the required Node packages and build the app. Note that this project is built with Node version 20.18.1, where Prisma is fully supported. Odd-numbered versions like 23.x may not be stable as of the time this README was written. Also, refer to [`.env.example`](/frontend/.env.example) to ensure all environment variables are correctly configured.
 
    ```bash
    cd frontend

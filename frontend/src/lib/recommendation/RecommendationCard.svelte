@@ -20,7 +20,7 @@
 			<img src={image_src} alt={university} class="h-full w-full object-cover" />
 		</div>
 		<div class="flex flex-1 flex-col justify-center p-3">
-			<h3 class="line-clamp-2 text-lg font-semibold leading-tight">
+			<h3 class="text-md line-clamp-3 font-semibold leading-tight sm:text-lg">
 				{ranking}
 				{program_title}
 			</h3>

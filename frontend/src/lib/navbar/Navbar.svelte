@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import SignInButton from './SignInButton.svelte';
 	import { page } from '$app/state';
 	import UserProfile from './UserProfile.svelte';

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { query_result, loading, search_query } from '$lib/shared.svelte';
 	import { onMount } from 'svelte';
-	import { prisma } from '../../prisma';
 	import { page } from '$app/state';
 
 	let apiUrl = '';
@@ -9,6 +8,20 @@
 	onMount(() => {
 		apiUrl = import.meta.env.VITE_API_URL;
 	});
+
+	const charLimit = 150;
+	const textareaClass = $derived(
+		search_query.query.length >= charLimit
+			? 'textarea textarea-bordered flex h-48 w-full resize-none border-red-500 rounded-lg'
+			: 'textarea textarea-bordered flex h-48 w-full resize-none rounded-lg'
+	);
+
+	function handleInput(event: Event) {
+		const textarea = event.target as HTMLTextAreaElement;
+		if (textarea.value.length > charLimit) {
+			search_query.query = search_query.query.slice(0, charLimit);
+		}
+	}
 
 	async function submitQuery() {
 		loading.is_loading = true;
@@ -28,8 +41,7 @@
 
 			if (page?.data?.session?.user) {
 				const userEmail = page.data.session.user.email!;
-				console.log(page.data);
-				await fetch(`/api/history/`, {
+				await fetch(`/api/create-history/`, {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/json' },
 					body: JSON.stringify({ query: search_query.query, result, userEmail })
@@ -50,17 +62,23 @@
 </svelte:head>
 
 <div class="card w-full max-w-lg">
-	<div class="card-body rounded-xl border border-base-content/25">
+	<div class="card-body rounded-xl border border-base-content/25 px-6 py-4">
+		<div class="mb-2 text-right text-xs text-base-content/75 sm:text-sm">
+			<span class={search_query.query.length > charLimit ? 'text-red-500' : ''}>
+				{search_query.query.length}/{charLimit} characters
+			</span>
+		</div>
 		<textarea
 			id="search_query"
 			bind:value={search_query.query}
-			class="textarea textarea-bordered flex h-48 w-full resize-none"
+			class={textareaClass}
 			placeholder="Tell us about yourself in 20 - 30 words"
+			oninput={handleInput}
 			onkeydown={(e) => e.key === 'Enter' && (e.preventDefault(), submitQuery())}
 		></textarea>
 		<div class="mt-4 flex items-center space-x-4">
 			<div class="text-left text-xs text-base-content/75 sm:text-sm">
-				If you experience a delay after submitting, try again as the backend may be inactive.
+				If you experience a delay after submitting, please kindly wait for the cold start.
 			</div>
 			<button
 				class="btn h-12 w-12 rounded-full bg-red-500 hover:bg-red-600"

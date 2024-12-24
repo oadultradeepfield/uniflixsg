@@ -2,7 +2,7 @@ import { SvelteKitAuth } from '@auth/sveltekit';
 import Google from '@auth/core/providers/google';
 import { AUTH_GOOGLE_ID, AUTH_GOOGLE_SECRET } from '$env/static/private';
 import { PrismaAdapter } from '@auth/prisma-adapter';
-import { prisma } from './prisma';
+import prisma from '$lib/prisma';
 
 export const { handle } = SvelteKitAuth({
 	adapter: PrismaAdapter(prisma),

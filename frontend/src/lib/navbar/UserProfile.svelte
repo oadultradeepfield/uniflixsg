@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { signOut } from '@auth/sveltekit/client';
 	let { image, name } = $props();
 </script>
@@ -9,8 +9,10 @@
 	</div>
 	<ul class="menu dropdown-content w-32 rounded-xl bg-zinc-800 p-1 shadow">
 		<li>
-			<button class="rounded-lg px-3 py-2 text-sm hover:bg-zinc-700" aria-label="View history"
-				>View history</button
+			<a
+				href="/history"
+				class="rounded-lg px-3 py-2 text-sm hover:bg-zinc-700"
+				aria-label="View history">View history</a
 			>
 		</li>
 		<li>

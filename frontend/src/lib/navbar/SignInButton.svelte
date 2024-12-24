@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import GoogleIcon from './GoogleIcon.svelte';
 	import { signIn } from '@auth/sveltekit/client';
 </script>

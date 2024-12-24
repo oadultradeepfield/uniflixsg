@@ -1,9 +1,20 @@
-import { prisma } from '../../../prisma';
+import prisma from '$lib/prisma';
 import type { RequestHandler } from '@sveltejs/kit';
 
 export const POST: RequestHandler = async ({ request }) => {
 	try {
 		const { query, result, userEmail } = await request.json();
+
+		const existingGroup = await prisma.responseGroup.findFirst({
+			where: {
+				userEmail,
+				responsesName: query
+			}
+		});
+
+		if (existingGroup) {
+			return new Response(JSON.stringify(existingGroup), { status: 200 });
+		}
 
 		const responseCount = await prisma.responseGroup.count({
 			where: { userEmail }

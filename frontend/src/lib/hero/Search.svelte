@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { query_result, loading, search_query } from '$lib/shared.svelte';
 	import { onMount } from 'svelte';
 	let apiUrl = '';
@@ -10,6 +10,7 @@
 	async function submitQuery() {
 		loading.is_loading = true;
 		if (!search_query.query.trim()) {
+			loading.is_loading = false;
 			return;
 		}
 
@@ -37,6 +38,8 @@
 <div class="card w-full max-w-lg">
 	<div class="card-body rounded-xl border border-base-content/25">
 		<textarea
+			id="search_query"
+			bind:value={search_query.query}
 			class="textarea textarea-bordered flex h-48 w-full resize-none"
 			placeholder="Tell us about yourself in 20 - 30 words"
 			onkeydown={(e) => e.key === 'Enter' && (e.preventDefault(), submitQuery())}

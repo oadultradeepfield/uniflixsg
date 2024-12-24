@@ -4,10 +4,8 @@
 /backend/*$py.class
 
 # Environment variables
-.env
 *.env
-/backend/.env
-/backend/*.env
+*.env.local
 
 # Flask instance folder
 /backend/instance/

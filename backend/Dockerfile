@@ -22,6 +22,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Install psycopg2 explicitly (if not in requirements.txt)
 RUN pip install --no-cache-dir psycopg2-binary
 
+# Download the SentenceTransformer model during the build process
+RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('all-MiniLM-L6-v2')"
+
 # Copy the application files
 COPY . .
 

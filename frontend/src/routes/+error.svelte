@@ -14,7 +14,9 @@
 		</div>
 		<a href="/" class="btn btn-outline btn-secondary rounded-lg">Return to home</a>
 	</main>
-	<footer class="footer footer-center mt-12 bg-base-200 p-6 text-base-content">
-		<Footer />
-	</footer>
+	<div class="bg-base-200">
+		<footer class="footer mx-auto max-w-5xl p-10 text-sm text-base-content">
+			<Footer />
+		</footer>
+	</div>
 </div>

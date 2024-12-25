@@ -5,6 +5,12 @@
 
 	let selectedUniversity = $state('All');
 
+	const getUniversityAcronym = (university: string) =>
+		university
+			.split(' ')
+			.pop()
+			?.replace(/[\(\)]/g, '');
+
 	const filteredResults = $derived(
 		query_result.result.filter(
 			({ university }) => selectedUniversity === 'All' || university === selectedUniversity
@@ -19,15 +25,15 @@
 		<div class="flex flex-col gap-4">
 			{#if filteredResults.length > 0}
 				<div class="flex items-center justify-between px-6">
-					<label for="university-filter" class="font-medium">Filter:</label>
+					<label for="university-filter" class="font-medium">Filter by university:</label>
 					<select
 						id="university-filter"
-						class="select select-bordered w-full max-w-xs rounded-lg"
+						class="w-42 select select-bordered max-w-80 rounded-lg"
 						bind:value={selectedUniversity}
 					>
 						<option value="All">All</option>
 						{#each Array.from(new Set(query_result.result.map(({ university }) => university))) as university}
-							<option value={university}>{university}</option>
+							<option value={university}>{getUniversityAcronym(university)}</option>
 						{/each}
 					</select>
 				</div>

@@ -11,7 +11,7 @@
 		<a class="text-2xl font-bold text-red-400" href="/">UniFliXsg</a>
 	</div>
 	<div class="flex-none">
-		{#if !page?.data?.session?.user}
+		{#if page?.data?.session?.user}
 			<UserProfile {image} {name} />
 		{:else}
 			<SignInButton />

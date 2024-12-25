@@ -9,7 +9,7 @@
 		<Navbar />
 	</header>
 	<main
-		class="container mx-auto mb-12 mt-auto flex max-w-5xl flex-col items-center justify-center px-8 py-8"
+		class="container mx-auto mb-auto mt-auto flex max-w-5xl flex-col items-center justify-center px-8 py-8"
 	>
 		<History />
 	</main>

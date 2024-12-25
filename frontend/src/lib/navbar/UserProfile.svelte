@@ -7,7 +7,8 @@
 	<div tabindex="0" role="button" class="avatar w-9">
 		<img class="rounded-full" src={image} alt={name} referrerpolicy="no-referrer" />
 	</div>
-	<ul class="menu dropdown-content w-32 rounded-xl bg-zinc-800 p-1 shadow">
+	<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
+	<ul tabindex="0" class="menu dropdown-content absolute w-32 rounded-xl bg-zinc-800 p-1 shadow">
 		<li>
 			<a
 				href="/history"

@@ -9,7 +9,7 @@
 	<header class="border-b border-base-content/25 bg-base-200">
 		<Navbar />
 	</header>
-	<main class="container mx-auto mb-auto mt-auto flex flex-col items-center justify-center px-4">
+	<main class="container mx-auto mb-12 mt-auto flex flex-col items-center justify-center px-4">
 		<section class="py-6"><Hero /></section>
 		<section class="py-6"><Recommendation /></section>
 	</main>

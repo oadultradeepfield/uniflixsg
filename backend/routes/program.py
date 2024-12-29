@@ -1,8 +1,8 @@
 from utils.embeddings import calculate_similarity
 
 
-def get_program_recommendations(query):
-    recommendations = calculate_similarity(query)
+def get_program_recommendations(query, model_name):
+    recommendations = calculate_similarity(query, model_name)
     result = []
 
     for rec in recommendations:

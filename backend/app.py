@@ -1,10 +1,9 @@
 import os
 
+from database.migrate import migrate_data_to_db
 from dotenv import load_dotenv
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-
-from database.migrate import migrate_data_to_db
 from routes.program import get_program_recommendations
 
 load_dotenv()
@@ -24,11 +23,12 @@ CORS(app, resources={r"/*": {"origins": allowed_origins}})
 def recommend_program():
     data = request.get_json()
     query = data.get("query", "")
+    model_name = data.get("model_name", "")
 
     if not query:
         return jsonify({"error": "Query is required"}), 400
 
-    recommendations = get_program_recommendations(query)
+    recommendations = get_program_recommendations(query, model_name)
     return jsonify(recommendations)
 
 

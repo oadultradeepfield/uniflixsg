@@ -4,17 +4,15 @@ import numpy as np
 from dotenv import load_dotenv
 from sentence_transformers import SentenceTransformer
 from sqlalchemy import create_engine, text
-
 from utils.cosine_similarity import cosine_similarity
 
 load_dotenv()
 DSN = os.getenv("DSN")
 engine = create_engine(DSN)
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
 
-
-def calculate_similarity(query):
+def calculate_similarity(query, model_name):
+    model = SentenceTransformer(model_name)
     embedded_query = model.encode(query).reshape(1, -1)
 
     with engine.connect() as connection:

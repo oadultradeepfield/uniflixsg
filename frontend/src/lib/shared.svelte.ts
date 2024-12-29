@@ -3,7 +3,8 @@ export const loading = $state({
 });
 
 export const search_query = $state({
-	query: ''
+	query: '',
+	model_name: 'all-MiniLM-L15-v2'
 });
 
 export const query_result = $state({

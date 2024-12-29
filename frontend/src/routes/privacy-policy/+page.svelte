@@ -55,9 +55,10 @@
 						profile information (email, name, and image) as provided by Google.
 					</li>
 					<li>
-						<strong>Hugging Face (all-MiniLM-L6-v2)</strong>: Used for semantic search to process
-						and recommend undergraduate programs. Queries are sent to the language model for
-						real-time processing, but no personally identifiable data is shared.
+						<strong>Hugging Face (all-MiniLM-L6-v2 & all-MiniLM-L12-v2)</strong>: These models are
+						used for semantic search to process and recommend undergraduate programs. The models are
+						downloaded from Hugging Face, but all queries are processed via an internal API,
+						ensuring that no data is shared with Hugging Face under any circumstances.
 					</li>
 				</ul>
 

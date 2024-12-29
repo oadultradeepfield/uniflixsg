@@ -19,7 +19,7 @@ UniFliXsg is an app designed to recommend undergraduate programs from Singapore 
 
 I built this project specifically to learn Svelte and SvelteKit, which turned out to be lovely! I highly recommend giving it a try if you're currently using other frameworks. Additionally, I explored Prisma in this project. The backend was adapted from a previous project, requiring only the implementation of an API using Flask. You can read about the original implementation from this [blog](https://medium.com/towards-data-science/uniflixsg-ai-powered-undergraduate-program-recommendations-for-singapore-universities-b9b448f7ea19) on Medium.
 
-**Note**: This project uses the [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) language model. Detailed information about the model can be found on the linked Hugging Face page.
+**Note**: This project uses the [all-MiniLM-L12-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L12-v2) and [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) language models. The former is labeled as "More accurate, but slower," while the latter is "Faster, but less accurate." For more detailed information about these models, please refer to the linked Hugging Face pages.
 
 ## Installation
 

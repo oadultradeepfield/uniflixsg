@@ -57,13 +57,23 @@ def calculate_similarity(query, model_name):
 
     index_sorted = np.argsort(-mean_similarity, axis=0).flatten()
     top_indices = index_sorted[:10]
-
     program_names = [programs[i][1] for i in top_indices]
+
+    scores = [
+        {
+            "university_score": float(similarity_university[i]),
+            "program_score": float(similarity_program[i]),
+            "career_score": float(similarity_career[i]),
+            "mean_score": float(mean_similarity[i]),
+        }
+        for i in top_indices
+    ]
 
     return [
         (
             name.rsplit(" at ", 1)[0],
             f"{name.rsplit(' at ', 1)[-1].split(' (')[0]} ({name.rsplit(' (', 1)[-1][:-1]}",
+            scores[i],
         )
-        for name in program_names
+        for i, name in enumerate(program_names)
     ]

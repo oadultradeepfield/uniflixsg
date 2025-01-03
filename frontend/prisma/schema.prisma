@@ -28,7 +28,6 @@ model User {
   createdAt      DateTime        @default(now())
   updatedAt      DateTime        @updatedAt
   UserResponse   UserResponse[]
-  SavedProgram   SavedProgram[]
 }
 
 model ResponseGroup {
@@ -39,15 +38,6 @@ model ResponseGroup {
   responses     Json     @default("[]")
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
-}
-
-model SavedProgram {
-  id        String   @id @default(cuid())
-  userEmail String
-  user      User     @relation(fields: [userEmail], references: [email], onDelete: Cascade)
-  responses Json     @default("[]")
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }
 
 model Account {

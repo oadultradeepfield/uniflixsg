@@ -9,7 +9,7 @@
 		apiUrl = import.meta.env.VITE_API_URL;
 	});
 
-	const charLimit = 150;
+	const charLimit = 300;
 	const textareaClass = $derived(
 		search_query.query.length >= charLimit
 			? 'textarea textarea-bordered flex h-48 w-full resize-none border-red-500 rounded-lg'

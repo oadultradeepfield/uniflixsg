@@ -56,7 +56,7 @@ The backend, containerized with Docker, is deployed serverlessly on Google Cloud
 ## Usage
 
 1. Access the frontend using the provided Vercel link.
-2. Enter a search query (e.g., `I constantly look for ways to make everyday more enjoyable. I love creating interactive tools and visuals that help others grasp concepts easily.`) to receive personalized recommendations. Note that the character limit is set to 150 to minimize computation overhead in the backend.
+2. Enter a search query (e.g., `I constantly look for ways to make everyday more enjoyable. I love creating interactive tools and visuals that help others grasp concepts easily.`) to receive personalized recommendations. Note that the character limit is set to 300 to minimize computation overhead in the backend.
 3. (Optional) Sign in with Google to save your search history. The history includes up to the ten most recent searches, along with their results.
 
 ## Contributing

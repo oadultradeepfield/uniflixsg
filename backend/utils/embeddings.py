@@ -11,6 +11,14 @@ DSN = os.getenv("DSN")
 engine = create_engine(DSN)
 
 
+def normalize_scores(scores):
+    min_score = np.min(scores)
+    max_score = np.max(scores)
+    if max_score == min_score:
+        return np.ones_like(scores)
+    return (scores - min_score) / (max_score - min_score)
+
+
 def calculate_similarity(query, model_name):
     model = SentenceTransformer(model_name)
     embedded_query = model.encode(query).reshape(1, -1)
@@ -50,6 +58,10 @@ def calculate_similarity(query, model_name):
     similarity_university = cosine_similarity(embeddings_university, embedded_query)
     similarity_program = cosine_similarity(embeddings_program, embedded_query)
     similarity_career = cosine_similarity(embeddings_career, embedded_query)
+
+    similarity_university = normalize_scores(similarity_university)
+    similarity_program = normalize_scores(similarity_program)
+    similarity_career = normalize_scores(similarity_career)
 
     mean_similarity = (
         similarity_university + 2 * similarity_program + 2 * similarity_career

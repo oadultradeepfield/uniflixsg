@@ -5,7 +5,7 @@
 		let lastElement = processed.split(' ').pop() || '';
 		return `${lastElement.replace(/[()]/g, '')}`;
 	});
-	let image_src: string = $derived(`${university_abbreviation}.webp`);
+	let image_src: string = $derived(`${university_abbreviation}.png`);
 	let card_url: string = $derived(`https://www.${university_abbreviation}.edu.sg`);
 	let ranking: string = $derived.by(() => {
 		return i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : `${i + 1}.`;

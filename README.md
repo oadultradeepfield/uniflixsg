@@ -14,7 +14,7 @@
 
 ## Project Description
 
-UniFliXsg is an app designed to recommend undergraduate programs from Singapore universities based on a user's search query. It leverages semantic search by encoding the input text with language models and calculating the cosine similarity between the user's query and the programs in the database. The recommendations are influenced by program descriptions and career prospects.
+UniFliXsg is an downloadable web app designed to recommend undergraduate programs from Singapore universities based on a user's search query. It leverages semantic search by encoding the input text with language models and calculating the cosine similarity between the user's query and the programs in the database. The recommendations are influenced by program descriptions and career prospects.
 
 I built this project specifically to learn Svelte and SvelteKit, which turned out to be lovely! I highly recommend giving it a try if you're currently using other frameworks. Additionally, I explored Prisma in this project. The backend was adapted from a previous project, requiring only the implementation of an API using Flask. You can read about the original implementation from this [blog](https://medium.com/towards-data-science/uniflixsg-ai-powered-undergraduate-program-recommendations-for-singapore-universities-b9b448f7ea19) on Medium.
 

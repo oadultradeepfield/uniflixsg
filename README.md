@@ -7,7 +7,7 @@
 ![DaisyUI](https://img.shields.io/badge/daisyui-5A0EF8?style=for-the-badge&logo=daisyui&logoColor=white)
 ![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
-![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
 ![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white)
@@ -16,7 +16,7 @@
 
 UniFliXsg is an downloadable web app designed to recommend undergraduate programs from Singapore universities based on a user's search query. It leverages semantic search by encoding the input text with language models and calculating the cosine similarity between the user's query and the programs in the database. The recommendations are influenced by program descriptions and career prospects.
 
-I built this project specifically to learn Svelte and SvelteKit, which turned out to be lovely! I highly recommend giving it a try if you're currently using other frameworks. Additionally, I explored Prisma in this project. The backend was adapted from a previous project, requiring only the implementation of an API using Flask. You can read about the original implementation from this [blog](https://medium.com/towards-data-science/uniflixsg-ai-powered-undergraduate-program-recommendations-for-singapore-universities-b9b448f7ea19) on Medium.
+I built this project specifically to learn Svelte and SvelteKit, which turned out to be lovely! I highly recommend giving it a try if you're currently using other frameworks. Additionally, I explored Prisma in this project. The backend was adapted from a previous project, requiring only the implementation of an API using FastAPI You can read about the original implementation from this [blog](https://medium.com/towards-data-science/uniflixsg-ai-powered-undergraduate-program-recommendations-for-singapore-universities-b9b448f7ea19) on Medium.
 
 **Note**: This project uses the [all-MiniLM-L12-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L12-v2) and [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) language models. The former is labeled as "More accurate, but slower," while the latter is "Faster, but less accurate." For more detailed information about these models, please refer to the linked Hugging Face pages.
 

@@ -23,7 +23,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install --no-cache-dir psycopg2-binary
 
 # Download the SentenceTransformer model during the build process
-RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('all-MiniLM-L6-v2'); SentenceTransformer('all-MiniLM-L12-v2')"
+RUN python -c "from sentence_transformers import SentenceTransformer; \
+               SentenceTransformer('all-MiniLM-L6-v2'); \
+               SentenceTransformer('all-MiniLM-L12-v2')"
 
 # Copy the application files
 COPY . .
@@ -32,4 +34,4 @@ COPY . .
 EXPOSE 8080
 
 # Set the default command to run the application
-CMD ["flask", "run", "--host=0.0.0.0", "--port=8080"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8080", "--workers", "4"]

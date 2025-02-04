@@ -1,7 +1,8 @@
-Flask==3.1.0
-Flask_Cors==5.0.0
+fastapi==0.115.8
 numpy==1.23.2
 pandas==2.2.3
+pydantic==2.10.6
 python-dotenv==1.0.1
 sentence_transformers==3.0.1
 SQLAlchemy==2.0.36
+uvicorn==0.34.0

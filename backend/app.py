@@ -2,13 +2,14 @@ import os
 
 from database.migrate import migrate_data_to_db
 from dotenv import load_dotenv
-from flask import Flask, jsonify, request
-from flask_cors import CORS
+from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 from routes.program import get_program_recommendations
 
 load_dotenv()
 
-app = Flask(__name__)
+app = FastAPI()
 
 migrate_data_to_db()
 
@@ -16,21 +17,30 @@ allowed_origins = os.getenv("ALLOWED_ORIGINS", "").split(",")
 if not allowed_origins:
     print("Warning: No allowed origins specified in .env file")
 
-CORS(app, resources={r"/*": {"origins": allowed_origins}})
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=allowed_origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
-@app.route("/api/recommend", methods=["POST"])
-def recommend_program():
-    data = request.get_json()
-    query = data.get("query", "")
-    model_name = data.get("model_name", "")
+class RecommendationRequest(BaseModel):
+    query: str
+    model_name: str = ""
 
-    if not query:
-        return jsonify({"error": "Query is required"}), 400
 
-    recommendations = get_program_recommendations(query, model_name)
-    return jsonify(recommendations)
+@app.post("/api/recommend")
+async def recommend_program(data: RecommendationRequest):
+    if not data.query:
+        raise HTTPException(status_code=400, detail="Query is required")
+
+    recommendations = get_program_recommendations(data.query, data.model_name)
+    return recommendations
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    import uvicorn
+
+    uvicorn.run(app, host="0.0.0.0", port=8000, debug=True)
